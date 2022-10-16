@@ -84,7 +84,6 @@
 (setq pyim-default-scheme 'wubi)
 
 ;; python
-;; (setq tab-width 2)
 (setq python-indent-guess-indent-offset nil)
 (setq python-indent-offset 2)
 (use-package! lsp-pyright
