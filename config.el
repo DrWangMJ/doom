@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-molokai)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -83,32 +83,42 @@
 (setq default-input-method "pyim")
 (setq pyim-default-scheme 'wubi)
 
+;; company
+(after! company
+  (setq company-idle-delay 0.1
+        company-tooltip-align-annotations t
+        company-show-quick-access t
+        company-minimum-prefix-length 1))
+(setq company-backends '(:separate company-yasnippet company-capf))
+(setq +lsp-company-backends '(:separate company-yasnippet company-capf))
+
 ;; python
 (setq python-indent-guess-indent-offset nil)
 (setq python-indent-offset 2)
-(use-package! lsp-pyright
-  :init (when (executable-find "python3")
-          (setq lsp-pyright-python-executable-cmd "python3"))
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
 
-(use-package! lsp-mode
-  ;; :hook ((verilog-mode vhdl-mode) . lsp)
-  :config
-  (setq lsp-log-io nil
-        lsp-auto-configure t
-        lsp-auto-guess-root t
-        lsp-completion-enable t
-        lsp-enable-xref t
-        lsp-enable-indentation t
-        lsp-response-timeout 10
-        lsp-restart 'auto-restart
-        lsp-keep-workspace-alive nil
-        lsp-eldoc-render-all t
-        lsp-enable-snippet t
-        lsp-enable-folding t
-        lsp-enable-file-watchers t
-        lsp-file-watch-threshold 1000)
-  (advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
-  )
+;; (use-package! lsp-pyright
+;;   :init (when (executable-find "python3")
+;;           (setq lsp-pyright-python-executable-cmd "python3"))
+;;   :hook (python-mode . (lambda ()
+;;                           (require 'lsp-pyright)
+;;                           (lsp))))  ; or lsp-deferred
+
+;; (use-package! lsp-mode
+;;   ;; :hook ((verilog-mode vhdl-mode) . lsp)
+;;   :config
+;;   (setq lsp-log-io nil
+;;         lsp-auto-configure t
+;;         lsp-auto-guess-root t
+;;         lsp-completion-enable t
+;;         lsp-enable-xref t
+;;         lsp-enable-indentation t
+;;         lsp-response-timeout 10
+;;         lsp-restart 'auto-restart
+;;         lsp-keep-workspace-alive nil
+;;         lsp-eldoc-render-all t
+;;         lsp-enable-snippet t
+;;         lsp-enable-folding t
+;;         lsp-enable-file-watchers t
+;;         lsp-file-watch-threshold 1000)
+;;   (advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
+;;   )
