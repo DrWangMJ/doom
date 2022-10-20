@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "SauceCodePro NF" :size 20 :weight 'Regular)
-     doom-variable-pitch-font (font-spec :family "SauceCodePro NF" :size 20))
+;; (setq doom-font (font-spec :family "SauceCodePro NF" :size 30 :weight 'Regular)
+;;      doom-variable-pitch-font (font-spec :family "SauceCodePro NF" :size 30))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -48,6 +48,10 @@
       org-journal-file-format "%Y-%m-%d.org")
 
 (setq org-roam-directory "~/SynologyDrive/Documents/org/roam/")
+
+(setq deft-directory "~/SynologyDrive/Documents/org/Notes/"
+      deft-extensions '("org" "txt")
+      deft-recursive t)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
