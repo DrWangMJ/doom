@@ -54,13 +54,17 @@
 (setq org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* "
       org-journal-date-format "%Y-%m-%d, %A"
-      org-journal-file-format "%Y-%m-%d.org")
+      org-journal-file-format "%Y-%m-%d.org"
+      org-journal-enable-agenda-integration t)
 
 (setq org-roam-directory "~/SynologyDrive/Documents/org/roam/")
 
 (setq deft-directory "~/SynologyDrive/Documents/org/Notes/"
       deft-extensions '("org" "txt")
       deft-recursive t)
+
+;; (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+;; (add-to-list 'org-agenda-files org-journal-dir)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
