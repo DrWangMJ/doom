@@ -41,6 +41,15 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/SynologyDrive/Documents/org/")
+(setq org-todo-keywords '((sequence "TODO(t)" "DOING(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
+      org-fancy-priorities-mode t
+      org-todo-keyword-faces
+      '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
+        ("WAITING" :foreground "#9f7efe" :weight normal :underline t)
+        ("DOING" :foreground "#0098dd" :weight normal :underline t)
+        ("DONE" :foreground "#50a14f" :weight normal :underline t)
+        ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)))
+
 (setq org-journal-dir "~/SynologyDrive/Documents/org/journals/")
 (setq org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* "
@@ -85,8 +94,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; coding system
+(prefer-coding-system 'utf-8)
+(set-language-environment 'UTF-8)
+
 ;; maximize
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; default directory
+(setq default-directory "~/")
 
 ;; chinese input
 (pyim-wbdict-v86-enable)
