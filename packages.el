@@ -49,6 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+(package! zotxt)
 (package! pyim :recipe (:host github :repo "tumashu/pyim"))
 (package! pyim-wbdict :recipe (:host github :repo "tumashu/pyim-wbdict"))
 (package! pyim-basedict :recipe (:host github :repo "tumashu/pyim-basedict"))

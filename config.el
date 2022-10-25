@@ -63,6 +63,21 @@
       deft-extensions '("org" "txt")
       deft-recursive t)
 
+(map! :leader
+      :desc "insert zotero citation"
+      "n r z" #'org-zotxt-insert-reference-link)
+(map! :leader
+      :desc "open zotero attachment"
+      "n r p" #'org-zotxt-open-attachment)
+
+;; zotero integration
+;; Activate org-zotxt-mode in org-mode buffers
+(add-hook 'org-mode-hook (lambda () (org-zotxt-mode 1)))
+(after! zotxt
+  (setq zotxt-default-bibliography-style "american-geophysical-union"))
+;; turn off the proxy
+(setq url-proxy-services nil)
+
 ;; (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 ;; (add-to-list 'org-agenda-files org-journal-dir)
 
